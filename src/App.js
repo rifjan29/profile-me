@@ -17,8 +17,10 @@ function App() {
       <Navbar />
       <section
         className="
-                    h-screen
+                    h-max 
+                    md:h-screen
                     dark:bg-slate-900
+                    py-4
                   "
       >
         <div className='
@@ -42,6 +44,7 @@ function App() {
                           text-2xl
                           font-medium
                           dark:text-gray-500 
+                          mb-4
                           "
               >
                 Hi 👋!
@@ -68,8 +71,9 @@ function App() {
                   sm:text-6xl 
                   sm:text-center 
                   md:text-left
-                  dark:text-gray-500 '>
-                  Web Developer
+                  dark:text-gray-500 
+                  mt-4'>
+                  a Web Developer
               </h1>
                 
               <p
