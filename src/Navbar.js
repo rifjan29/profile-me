@@ -5,8 +5,8 @@ import { useDarkMode } from './DarkModeContext';
 
 const navigation = [
   { name: 'ABOUT', href: '#', current: true },
-  { name: 'EXPERIENCE', href: '#', current: false },
-  { name: 'PROJECTS', href: '#', current: false },
+  { name: 'EXPERIENCE', href: '#experience', current: false },
+  { name: 'PROJECTS', href: '#project', current: false },
 ]
 
 function classNames(...classes) {
@@ -16,7 +16,7 @@ function classNames(...classes) {
 export default function Navbar() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   return (
-    <Disclosure as="nav" className="bg-white-800 border-b-2 dark:bg-slate-900">
+    <Disclosure as="nav" className="bg-white-800 border-b-2 dark:bg-gradient-to-r from-slate-900 to-slate-700">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
