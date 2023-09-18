@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 import bg from './assets/img/bg-1.svg';
 import profile from './assets/img/profile.png';
@@ -9,6 +9,9 @@ import logo from './assets/img/avatar.png';
 import Navbar from './Navbar';
 import 'remixicon/fonts/remixicon.css'
 import { DarkModeProvider, useDarkMode } from './DarkModeContext';
+import Particles from 'react-particles';
+import { loadFull } from 'tsparticles';
+import particlesConfig from './components/config/particles-config';
 
 function App() {
   // dark mode
@@ -28,6 +31,19 @@ function App() {
       window.addEventListener('scroll', checkScrollTop);
       return () => window.removeEventListener('scroll', checkScrollTop);
   }, [showScrollTop]);
+  const particlesInit = useCallback(async engine => {
+      console.log(engine);
+      
+      // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+      // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+      // starting from v2 you can add only the features you need reducing the bundle size
+      //await loadFull(engine);
+      await loadFull(engine);
+  }, []);
+
+  const particlesLoaded = useCallback(async container => {
+  }, []);
+
   return (
     <>
      <div className={isDarkMode ? 'dark' : ''}>
@@ -40,6 +56,13 @@ function App() {
                     py-4
                   "
       >
+        <Particles
+              id="tsparticles"
+              init={particlesInit}
+              loaded={particlesLoaded}
+              options={particlesConfig(isDarkMode)} 
+              className='h-full w-full absolute top-10 left-0 -z-1'
+        />
         <div className='
                 mx-auto
                 px-5
@@ -54,7 +77,7 @@ function App() {
                     grid-rows-1 
                     gap-4"
           >
-            <div>
+            <div className='z-10'>
               <hr className="mb-2 w-36 h-0.5 bg-black"></hr>
               <h4
                 className="
@@ -106,7 +129,7 @@ function App() {
                           "
               >
                 An web developer with 1 years of experience in
-                <strong>web application development</strong>.And also
+                <strong> web application development</strong>.And also
                 interest to learn more about new technology and
                 <strong> UI/UX Design</strong>
               </p>
@@ -182,7 +205,7 @@ function App() {
         </div>
       </section>
       {/* START EXPERIENCE */}
-      <section className='dark:bg-gradient-to-r from-slate-900 to-slate-700 dark:text-white h-screen' id='experience'>
+      <section className='dark:bg-gradient-to-r from-slate-900 to-slate-700 dark:text-white h-fit z-10 ' id='experience'>
         <div
           className="
           container 
@@ -193,13 +216,14 @@ function App() {
           
       "
         >
-          <div className="">
+          <div className="z-30">
             <h1
               className="
               text-4xl
               font-bold
               pb-2
               text-center
+              z-10
             "
             >
               EXPERIENCE

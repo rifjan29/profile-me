@@ -16,7 +16,7 @@ function classNames(...classes) {
 export default function Navbar() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   return (
-    <Disclosure as="nav" className="bg-white-800 border-b-2 dark:bg-gradient-to-r from-slate-900 to-slate-700">
+    <Disclosure as="nav" className="bg-white-800 border-b-2 dark:bg-gradient-to-r from-slate-900 to-slate-700 z-50">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
