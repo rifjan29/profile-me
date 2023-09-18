@@ -79,16 +79,21 @@ function App() {
           >
             <div className='z-10'>
               <hr className="mb-2 w-36 h-0.5 bg-black"></hr>
-              <h4
-                className="
-                          text-2xl
-                          font-medium
-                          dark:text-gray-300 
-                          mb-4
-                          "
-              >
-                Hi 👋!
-              </h4>
+              <div className='flex'>
+                <p className='text-2xl mr-2'>👋</p>
+                <h4
+                  className="
+                            text-2xl
+                            font-medium
+                            dark:text-gray-300 
+                            mb-4
+                            "
+                >
+                  ٱلسَّلَامُ عَلَيْكُمْ
+                </h4>
+                
+
+              </div>
               <h1
                   className="
                       text-4xl 
