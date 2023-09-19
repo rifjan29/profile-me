@@ -1,6 +1,7 @@
+
 export const Experience = () => {
     return (
-        <div>
+        <>
              <section className='dark:bg-gradient-to-r from-slate-900 to-slate-700 dark:text-white h-fit z-10 ' id='experience'>
                 <div
                 className="
@@ -129,7 +130,7 @@ export const Experience = () => {
                 </div>
                 </div>
             </section>
-        </div>
+        </>
     )
 
 }

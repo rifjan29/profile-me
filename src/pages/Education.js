@@ -65,6 +65,10 @@ export const Education = () => {
                             {/* Job Description */}
                             <ol className="list-decimal pl-5 space-y-2 text-justify mt-3">
                                 <li className="text-sm text-gray-500 leading-relaxed">
+                                    Tugas Akhir (Skripsi) mengambil judul <strong className="font-bold">PENGEMBANGAN SISTEM INFORMASI PERAMALAN HASIL 
+                                    PRODUKSI TAMBAK UDANG MENGGUNAKAN METODE REGRESI LINIER BERGANDA</strong> 
+                                </li>
+                                <li className="text-sm text-gray-500 leading-relaxed">
                                     Aktif di organisasi kampus yaitu BSO HMJTI menjabat di Kepala Divisi Perhubungan merupakan divisi sebagai wadah untuk menyampaikan 
                                     informasi dan anspirasi mahasiswa Politeknik Negeri Jember Kampus Bondowoso
                                 </li>
