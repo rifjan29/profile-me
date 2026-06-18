@@ -1,0 +1,23 @@
+services:
+  frontend:
+    image: node:20-alpine
+    container_name: portfolio_frontend
+    user: "1000:1000"
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      - PORT=3000
+      - CHOKIDAR_USEPOLLING=true
+    command: sh -c "npm install --legacy-peer-deps && npm start"
+    ports:
+      - "3000:3000"
+    networks:
+      default:
+        aliases:
+          - profile-me.test
+
+networks:
+  default:
+    name: backend-dap_default
+    external: true
