@@ -9,7 +9,7 @@ export const useDarkMode = () => {
 export const DarkModeProvider = ({ children }) => {
     const [isDarkMode, setIsDarkMode] = useState(() => {
         const savedMode = localStorage.getItem('darkMode');
-        return savedMode ? JSON.parse(savedMode) : false;
+        return savedMode !== null ? JSON.parse(savedMode) : true;
     });
 
     const toggleDarkMode = () => {

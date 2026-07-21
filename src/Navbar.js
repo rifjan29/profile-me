@@ -5,14 +5,15 @@ const LINKS = [
   { name: 'Experience', idx: 1 },
   { name: 'Projects',   idx: 2 },
   { name: 'Education',  idx: 3 },
-  { name: 'Contact',    idx: 4 },
+  { name: 'Games',      idx: 4 },
+  { name: 'Contact',    idx: 5 },
 ];
 
 export default function Navbar({ active, goTo }) {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl border-b border-black/5 dark:border-white/5">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-50/80 dark:bg-[#090d16]/80 backdrop-blur-xl border-b border-slate-200/70 dark:border-white/5 transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
         {/* Logo */}
         <button onClick={() => goTo(0)} className="mono text-sm font-medium text-gray-900 dark:text-white">
