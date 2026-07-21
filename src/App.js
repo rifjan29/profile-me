@@ -781,7 +781,7 @@ function App() {
             <div className="min-h-screen flex flex-col justify-start pt-20 pb-20 max-w-4xl mx-auto px-6">
               <span className="section-label fade-up">Back End Developer & System Architect —</span>
 
-              <h1 className="fade-up-2 mt-4 text-5xl md:text-7xl font-black tracking-tight leading-none">
+              <h1 className="fade-up-2 mt-4 text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-none">
                 Rifjan<br/>
                 <span className="g-text">Jundila</span>
                 <span className="cursor text-emerald-400">_</span>

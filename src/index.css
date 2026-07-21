@@ -149,7 +149,7 @@ html, body, #root {
 /* ── Dot nav ── */
 .dot-nav {
   position: fixed;
-  right: 20px;
+  right: 8px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 100;
@@ -157,6 +157,9 @@ html, body, #root {
   flex-direction: column;
   gap: 10px;
   align-items: center;
+}
+@media (min-width: 640px) {
+  .dot-nav { right: 20px; }
 }
 .dot {
   width: 6px; height: 6px;
