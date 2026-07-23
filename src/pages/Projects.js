@@ -44,21 +44,21 @@ const projects = [
 ];
 
 const typeColor = {
-  Enterprise: 'bg-purple-50 text-purple-600 dark:bg-purple-900/20 dark:text-purple-400',
-  Company:    'bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400',
-  Personal:   'bg-emerald-50 text-emerald-600 dark:bg-emerald-900/20 dark:text-emerald-400',
+  Enterprise: 'bg-neutral-900 text-white dark:bg-neutral-100 dark:text-black',
+  Company:    'bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100',
+  Personal:   'bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300 border border-neutral-300 dark:border-neutral-700',
 };
 
 export const Project = () => {
   return (
-    <section id="project" className="py-24 bg-white dark:bg-gray-950">
+    <section id="project" className="py-24 bg-white dark:bg-black">
       <div className="max-w-5xl mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white section-heading">
+          <h2 className="text-3xl font-bold text-neutral-900 dark:text-white section-heading">
             Projects
           </h2>
-          <p className="text-gray-400 dark:text-gray-500 text-sm mt-4">Things I've built over the years</p>
+          <p className="text-neutral-400 dark:text-neutral-500 text-sm mt-4">Things I've built over the years</p>
         </div>
 
         {/* Grid */}
@@ -66,30 +66,30 @@ export const Project = () => {
           {projects.map((p) => (
             <div
               key={p.id}
-              className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 border border-gray-100 dark:border-gray-800 card-hover flex flex-col"
+              className="bg-neutral-50 dark:bg-neutral-950 rounded-2xl p-6 border border-neutral-200 dark:border-neutral-800 card-hover flex flex-col"
             >
               {/* Icon placeholder + type badge */}
               <div className="flex items-center justify-between mb-4">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-400 flex items-center justify-center text-white shadow-md">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-neutral-800 to-black dark:from-neutral-200 dark:to-white flex items-center justify-center text-white dark:text-black shadow-md">
                   <i className="ri-code-s-slash-line text-lg"></i>
                 </div>
-                <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${typeColor[p.type]}`}>
+                <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${typeColor[p.type]}`}>
                   {p.type}
                 </span>
               </div>
 
-              <h3 className="font-semibold text-gray-900 dark:text-white text-sm mb-2 leading-snug flex-grow-0">
+              <h3 className="font-semibold text-neutral-900 dark:text-white text-sm mb-2 leading-snug flex-grow-0">
                 {p.name}
               </h3>
 
-              <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed flex-grow mb-4">
+              <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed flex-grow mb-4">
                 {p.description}
               </p>
 
               {/* Tech tags */}
               <div className="flex flex-wrap gap-1.5 mt-auto">
                 {p.tags.map(t => (
-                  <span key={t} className="text-xs bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded-md font-medium">
+                  <span key={t} className="text-xs bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 px-2 py-0.5 rounded-md font-medium">
                     {t}
                   </span>
                 ))}

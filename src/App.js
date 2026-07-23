@@ -252,51 +252,51 @@ Cache-Control: max-age=0, private, must-revalidate
       {/* Top Bar */}
       <div className="terminal-header">
         <div className="flex items-center gap-2">
-          <span className="terminal-dot bg-red-500"></span>
-          <span className="terminal-dot bg-yellow-500"></span>
-          <span className="terminal-dot bg-green-500"></span>
-          <span className="ml-2 font-mono text-[11px] text-gray-400">bash - rifjan@dev-server:~</span>
+          <span className="terminal-dot bg-neutral-600"></span>
+          <span className="terminal-dot bg-neutral-400"></span>
+          <span className="terminal-dot bg-neutral-200"></span>
+          <span className="ml-2 font-mono text-[11px] text-neutral-400">bash - rifjan@dev-server:~</span>
         </div>
-        <div className="flex items-center gap-1 text-[10px] text-emerald-400 font-mono">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block pulse-green"></span>
+        <div className="flex items-center gap-1 text-[10px] text-white font-mono">
+          <span className="w-2 h-2 rounded-full bg-white inline-block pulse-mono"></span>
           REST API 200 OK
         </div>
       </div>
 
       {/* Terminal Content */}
-      <div ref={terminalBodyRef} className="p-3 h-36 overflow-y-auto font-mono text-gray-200 dark:text-gray-300 space-y-1 leading-relaxed bg-gray-950/90 dark:bg-gray-950">
+      <div ref={terminalBodyRef} className="p-3 h-36 overflow-y-auto font-mono text-neutral-200 dark:text-neutral-300 space-y-1 leading-relaxed bg-black">
         {history.map((h, i) => (
-          <div key={i} className={h.type === 'user' ? 'text-emerald-400 font-semibold' : h.type === 'system' ? 'text-cyan-400' : 'text-gray-300 whitespace-pre-wrap'}>
+          <div key={i} className={h.type === 'user' ? 'text-white font-semibold' : h.type === 'system' ? 'text-neutral-400' : 'text-neutral-300 whitespace-pre-wrap'}>
             {h.text}
           </div>
         ))}
       </div>
 
       {/* Quick Buttons & Input Form */}
-      <div className="border-t border-gray-800 p-2 bg-gray-900/90 flex flex-col gap-1.5">
+      <div className="border-t border-neutral-800 p-2 bg-neutral-900 flex flex-col gap-1.5">
         <div className="flex flex-wrap gap-1.5 text-[10px]">
           {['help', 'cat skills.json', 'curl profile', 'php artisan', 'docker ps', 'status', 'clear'].map(c => (
             <button
               key={c}
               type="button"
               onClick={() => handleCommand(c)}
-              className="px-2 py-0.5 bg-gray-800 hover:bg-emerald-950 hover:text-emerald-400 text-gray-300 rounded border border-gray-700 transition-colors font-mono"
+              className="px-2 py-0.5 bg-neutral-800 hover:bg-white hover:text-black text-neutral-300 rounded border border-neutral-700 transition-colors font-mono"
             >
               {c}
             </button>
           ))}
         </div>
         <form onSubmit={onSubmit} className="flex items-center gap-2 font-mono text-xs">
-          <span className="text-emerald-400 font-bold">$</span>
+          <span className="text-white font-bold">$</span>
           <input
             type="text"
             value={inputVal}
             onChange={e => setInputVal(e.target.value)}
             onKeyDown={e => e.stopPropagation()} // Stop scroll triggering while typing
             placeholder="Type command (e.g. help, status, curl profile)..."
-            className="flex-1 bg-transparent text-gray-100 focus:outline-none placeholder-gray-500 font-mono"
+            className="flex-1 bg-transparent text-white focus:outline-none placeholder-neutral-500 font-mono"
           />
-          <button type="submit" className="text-xs px-2.5 py-0.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded font-semibold transition-colors">
+          <button type="submit" className="text-xs px-2.5 py-0.5 bg-white hover:bg-neutral-200 text-black rounded font-semibold transition-colors">
             Run
           </button>
         </form>
@@ -311,36 +311,36 @@ function ServerMetricsWidget() {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 my-3">
       <div className="card p-2.5 flex flex-col justify-between">
-        <div className="flex items-center justify-between text-xs text-gray-400 mb-0.5">
+        <div className="flex items-center justify-between text-xs text-neutral-400 mb-0.5">
           <span>Uptime</span>
-          <i className="ri-pulse-line text-emerald-400"></i>
+          <i className="ri-pulse-line text-neutral-300"></i>
         </div>
-        <div className="text-sm font-mono font-bold text-emerald-500">99.99%</div>
-        <div className="text-[10px] text-gray-400 mt-0.5">High Availability</div>
+        <div className="text-sm font-mono font-bold text-neutral-900 dark:text-white">99.99%</div>
+        <div className="text-[10px] text-neutral-400 mt-0.5">High Availability</div>
       </div>
       <div className="card p-2.5 flex flex-col justify-between">
-        <div className="flex items-center justify-between text-xs text-gray-400 mb-0.5">
+        <div className="flex items-center justify-between text-xs text-neutral-400 mb-0.5">
           <span>DB Latency</span>
-          <i className="ri-database-2-line text-cyan-400"></i>
+          <i className="ri-database-2-line text-neutral-300"></i>
         </div>
-        <div className="text-sm font-mono font-bold text-cyan-400">8 ms</div>
-        <div className="text-[10px] text-gray-400 mt-0.5">PostgreSQL Optimized</div>
+        <div className="text-sm font-mono font-bold text-neutral-900 dark:text-white">8 ms</div>
+        <div className="text-[10px] text-neutral-400 mt-0.5">PostgreSQL Optimized</div>
       </div>
       <div className="card p-2.5 flex flex-col justify-between">
-        <div className="flex items-center justify-between text-xs text-gray-400 mb-0.5">
+        <div className="flex items-center justify-between text-xs text-neutral-400 mb-0.5">
           <span>Cache Hit</span>
-          <i className="ri-flashlight-line text-amber-400"></i>
+          <i className="ri-flashlight-line text-neutral-300"></i>
         </div>
-        <div className="text-sm font-mono font-bold text-amber-400">98.5%</div>
-        <div className="text-[10px] text-gray-400 mt-0.5">Redis Buffer</div>
+        <div className="text-sm font-mono font-bold text-neutral-900 dark:text-white">98.5%</div>
+        <div className="text-[10px] text-neutral-400 mt-0.5">Redis Buffer</div>
       </div>
       <div className="card p-2.5 flex flex-col justify-between">
-        <div className="flex items-center justify-between text-xs text-gray-400 mb-0.5">
+        <div className="flex items-center justify-between text-xs text-neutral-400 mb-0.5">
           <span>Containers</span>
-          <i className="ri-server-line text-purple-400"></i>
+          <i className="ri-server-line text-neutral-300"></i>
         </div>
-        <div className="text-sm font-mono font-bold text-purple-400">4 Active</div>
-        <div className="text-[10px] text-gray-400 mt-0.5">Docker Managed</div>
+        <div className="text-sm font-mono font-bold text-neutral-900 dark:text-white">4 Active</div>
+        <div className="text-[10px] text-neutral-400 mt-0.5">Docker Managed</div>
       </div>
     </div>
   );
@@ -358,9 +358,9 @@ function LoadBalancerGame() {
   const timerRef = useRef(null);
 
   const NODES = [
-    { id: 'laravel', name: 'Laravel API Node', icon: 'ri-code-s-slash-line', color: 'border-red-500 text-red-400' },
-    { id: 'postgres', name: 'PostgreSQL DB Node', icon: 'ri-database-2-line', color: 'border-cyan-500 text-cyan-400' },
-    { id: 'redis', name: 'Redis Cache Node', icon: 'ri-flashlight-line', color: 'border-amber-500 text-amber-400' },
+    { id: 'laravel', name: 'Laravel API Node', icon: 'ri-code-s-slash-line', color: 'border-white text-white' },
+    { id: 'postgres', name: 'PostgreSQL DB Node', icon: 'ri-database-2-line', color: 'border-neutral-400 text-neutral-300' },
+    { id: 'redis', name: 'Redis Cache Node', icon: 'ri-flashlight-line', color: 'border-neutral-500 text-neutral-400' },
   ];
 
   const spawnNextRequest = useCallback(() => {
@@ -421,21 +421,21 @@ function LoadBalancerGame() {
 
   return (
     <div className="game-card p-4 sm:p-5 relative overflow-hidden">
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-4 border-b border-gray-700/50 pb-3">
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-4 border-b border-neutral-700/50 pb-3">
         <div>
-          <span className="mono text-[10px] font-bold text-emerald-400 uppercase tracking-wider">Mini-Game 1</span>
-          <h3 className="text-lg font-bold text-white flex items-center gap-2">
-            <i className="ri-server-line text-emerald-400"></i> Server Load Balancer Arcade
+          <span className="mono text-[10px] font-bold text-neutral-400 uppercase tracking-wider">Mini-Game 1</span>
+          <h3 className="text-lg font-bold text-black dark:text-white flex items-center gap-2">
+            <i className="ri-server-line text-neutral-400"></i> Server Load Balancer Arcade
           </h3>
         </div>
         <div className="flex items-center gap-4 font-mono text-xs">
           <div>
-            <span className="text-gray-400">Score:</span>{' '}
-            <span className="text-emerald-400 font-bold text-base">{score}</span>
+            <span className="text-neutral-400">Score:</span>{' '}
+            <span className="text-black dark:text-white font-bold text-base">{score}</span>
           </div>
           <div>
-            <span className="text-gray-400">High Score:</span>{' '}
-            <span className="text-amber-400 font-bold text-base">{highScore}</span>
+            <span className="text-neutral-400">High Score:</span>{' '}
+            <span className="text-neutral-500 dark:text-neutral-300 font-bold text-base">{highScore}</span>
           </div>
         </div>
       </div>
@@ -443,13 +443,13 @@ function LoadBalancerGame() {
       {/* CPU Load Bar */}
       <div className="mb-4">
         <div className="flex justify-between text-xs font-mono mb-1">
-          <span className="text-gray-300">Cluster CPU Load</span>
-          <span className={cpuLoad > 75 ? 'text-red-400 font-bold animate-pulse' : 'text-emerald-400 font-bold'}>{cpuLoad}%</span>
+          <span className="text-neutral-300">Cluster CPU Load</span>
+          <span className={cpuLoad > 75 ? 'text-white font-bold animate-pulse' : 'text-neutral-300 font-bold'}>{cpuLoad}%</span>
         </div>
-        <div className="h-2.5 bg-gray-800 rounded-full overflow-hidden border border-gray-700">
+        <div className="h-2.5 bg-neutral-900 rounded-full overflow-hidden border border-neutral-700">
           <div
             className={`h-full transition-all duration-300 ${
-              cpuLoad > 85 ? 'bg-red-500' : cpuLoad > 60 ? 'bg-amber-500' : 'bg-emerald-500'
+              cpuLoad > 85 ? 'bg-white' : cpuLoad > 60 ? 'bg-neutral-400' : 'bg-neutral-600'
             }`}
             style={{ width: `${cpuLoad}%` }}
           />
@@ -458,16 +458,16 @@ function LoadBalancerGame() {
 
       {/* Game Play Area */}
       {!gameActive ? (
-        <div className="text-center py-6 sm:py-8 border-2 border-dashed border-gray-700/60 rounded-xl bg-gray-900/40">
-          <i className="ri-gamepad-line text-4xl text-emerald-400 mb-2 inline-block float-subtle"></i>
+        <div className="text-center py-6 sm:py-8 border-2 border-dashed border-neutral-700/60 rounded-xl bg-neutral-900/40">
+          <i className="ri-gamepad-line text-4xl text-neutral-300 mb-2 inline-block float-subtle"></i>
           <h4 className="text-base font-bold text-white">Route Incoming Web Requests</h4>
-          <p className="text-xs text-gray-400 max-w-md mx-auto mt-1 mb-4">
+          <p className="text-xs text-neutral-400 max-w-md mx-auto mt-1 mb-4">
             Click the matching server node (Laravel API, PostgreSQL DB, or Redis Cache) to route incoming traffic before CPU load reaches 100%!
           </p>
           <button
             type="button"
             onClick={startGame}
-            className="px-5 py-2 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold rounded-xl shadow-lg shadow-emerald-900/30 transition-all"
+            className="px-5 py-2 bg-white hover:bg-neutral-200 text-black text-xs font-bold rounded-xl shadow-lg transition-all"
           >
             Start Load Balancer
           </button>
@@ -475,10 +475,10 @@ function LoadBalancerGame() {
       ) : (
         <div className="space-y-4">
           {/* Incoming Request Box */}
-          <div className="bg-gray-900 border-2 border-emerald-500/40 rounded-xl p-3 text-center shadow-lg shadow-emerald-950/40">
-            <span className="text-[10px] font-mono text-emerald-400 tracking-wider uppercase">INCOMING REQUEST</span>
-            <div className="text-base font-mono font-bold text-cyan-300 my-0.5">{incomingReq?.type}</div>
-            <span className="text-xs text-gray-400">{incomingReq?.desc}</span>
+          <div className="bg-black border-2 border-neutral-700 rounded-xl p-3 text-center shadow-lg">
+            <span className="text-[10px] font-mono text-neutral-400 tracking-wider uppercase">INCOMING REQUEST</span>
+            <div className="text-base font-mono font-bold text-white my-0.5">{incomingReq?.type}</div>
+            <span className="text-xs text-neutral-400">{incomingReq?.desc}</span>
           </div>
 
           {/* Target Nodes */}
@@ -488,11 +488,11 @@ function LoadBalancerGame() {
                 key={node.id}
                 type="button"
                 onClick={() => handleRoute(node.id)}
-                className={`p-3 bg-gray-900/80 hover:bg-gray-800 border-2 ${node.color} rounded-xl flex flex-col items-center gap-1 transition-all transform hover:-translate-y-1`}
+                className={`p-3 bg-neutral-900 hover:bg-neutral-800 border-2 ${node.color} rounded-xl flex flex-col items-center gap-1 transition-all transform hover:-translate-y-1`}
               >
                 <i className={`${node.icon} text-xl`}></i>
                 <span className="font-mono text-xs font-bold">{node.name}</span>
-                <span className="text-[10px] text-gray-400">Route Here</span>
+                <span className="text-[10px] text-neutral-400">Route Here</span>
               </button>
             ))}
           </div>
@@ -500,9 +500,9 @@ function LoadBalancerGame() {
       )}
 
       {/* Terminal Log Output */}
-      <div className="mt-4 p-2.5 bg-gray-950 rounded-lg border border-gray-800 font-mono text-[10px] h-16 overflow-y-auto space-y-0.5">
+      <div className="mt-4 p-2.5 bg-black rounded-lg border border-neutral-800 font-mono text-[10px] h-16 overflow-y-auto space-y-0.5">
         {logs.map(l => (
-          <div key={l.id} className={l.type === 'success' ? 'text-emerald-400' : l.type === 'danger' ? 'text-red-400' : 'text-cyan-400'}>
+          <div key={l.id} className={l.type === 'success' ? 'text-white' : l.type === 'danger' ? 'text-neutral-400' : 'text-neutral-300'}>
             {l.msg}
           </div>
         ))}
@@ -574,47 +574,47 @@ function BugSmasherGame() {
 
   return (
     <div className="game-card p-6 relative overflow-hidden">
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-gray-700/50 pb-4">
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-neutral-700/50 pb-4">
         <div>
-          <span className="mono text-[10px] font-bold text-cyan-400 uppercase tracking-wider">Mini-Game 2</span>
-          <h3 className="text-xl font-bold text-white flex items-center gap-2">
-            <i className="ri-bug-2-line text-cyan-400"></i> Backend Bug Smasher & HTTP Trivia
+          <span className="mono text-[10px] font-bold text-neutral-400 uppercase tracking-wider">Mini-Game 2</span>
+          <h3 className="text-xl font-bold text-black dark:text-white flex items-center gap-2">
+            <i className="ri-bug-2-line text-neutral-400"></i> Backend Bug Smasher & HTTP Trivia
           </h3>
         </div>
         <div className="flex items-center gap-4 font-mono text-xs">
           <div>
-            <span className="text-gray-400">Time Left:</span>{' '}
-            <span className={timeLeft < 10 ? 'text-red-400 font-bold text-base animate-pulse' : 'text-cyan-400 font-bold text-base'}>{timeLeft}s</span>
+            <span className="text-neutral-400">Time Left:</span>{' '}
+            <span className={timeLeft < 10 ? 'text-white font-bold text-base animate-pulse' : 'text-neutral-300 font-bold text-base'}>{timeLeft}s</span>
           </div>
           <div>
-            <span className="text-gray-400">Score:</span>{' '}
-            <span className="text-emerald-400 font-bold text-base">{score}</span>
+            <span className="text-neutral-400">Score:</span>{' '}
+            <span className="text-black dark:text-white font-bold text-base">{score}</span>
           </div>
         </div>
       </div>
 
       {!gameActive ? (
-        <div className="text-center py-10 border-2 border-dashed border-gray-700/60 rounded-xl bg-gray-900/40">
-          <i className="ri-bug-line text-5xl text-cyan-400 mb-3 inline-block float-subtle"></i>
+        <div className="text-center py-10 border-2 border-dashed border-neutral-700/60 rounded-xl bg-neutral-900/40">
+          <i className="ri-bug-line text-5xl text-neutral-300 mb-3 inline-block float-subtle"></i>
           <h4 className="text-lg font-bold text-white">Fix Backend Bugs Under 30 Seconds</h4>
-          <p className="text-xs text-gray-400 max-w-md mx-auto mt-1 mb-5">
+          <p className="text-xs text-neutral-400 max-w-md mx-auto mt-1 mb-5">
             Identify the correct architectural fix for database queries, Sanctum auth tokens, and server exceptions!
           </p>
           <button
             type="button"
             onClick={startGame}
-            className="px-6 py-2.5 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-xl shadow-lg shadow-cyan-900/30 transition-all"
+            className="px-6 py-2.5 bg-white hover:bg-neutral-200 text-black font-bold rounded-xl shadow-lg transition-all"
           >
             Start Bug Smasher
           </button>
-          {message && <div className="mt-4 text-xs font-mono text-amber-400">{message}</div>}
+          {message && <div className="mt-4 text-xs font-mono text-neutral-300">{message}</div>}
         </div>
       ) : (
         <div className="space-y-6">
-          <div className="bg-gray-900 border-2 border-red-500/50 rounded-xl p-4 text-center">
-            <span className="text-[10px] font-mono text-red-400 uppercase tracking-wider">ACTIVE BACKEND BUG</span>
-            <div className="text-lg font-mono font-bold text-red-300 my-1">{currentBug?.title}</div>
-            <span className="text-xs text-gray-400">Select the correct solution to patch:</span>
+          <div className="bg-black border-2 border-neutral-700 rounded-xl p-4 text-center">
+            <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider">ACTIVE BACKEND BUG</span>
+            <div className="text-lg font-mono font-bold text-white my-1">{currentBug?.title}</div>
+            <span className="text-xs text-neutral-400">Select the correct solution to patch:</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -623,15 +623,15 @@ function BugSmasherGame() {
                 key={idx}
                 type="button"
                 onClick={() => handleFix(opt)}
-                className="p-3 bg-gray-900 hover:bg-emerald-950 hover:border-emerald-500 border border-gray-700 rounded-xl font-mono text-xs text-gray-200 hover:text-emerald-400 transition-all text-left flex items-center justify-between"
+                className="p-3 bg-neutral-900 hover:bg-black hover:border-white border border-neutral-700 rounded-xl font-mono text-xs text-neutral-200 hover:text-white transition-all text-left flex items-center justify-between"
               >
                 <span>{opt}</span>
-                <i className="ri-arrow-right-s-line text-gray-500"></i>
+                <i className="ri-arrow-right-s-line text-neutral-500"></i>
               </button>
             ))}
           </div>
 
-          <div className="text-center font-mono text-xs text-emerald-400 font-semibold">{message}</div>
+          <div className="text-center font-mono text-xs text-white font-semibold">{message}</div>
         </div>
       )}
     </div>
@@ -784,12 +784,12 @@ function App() {
               <h1 className="fade-up-2 mt-4 text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-none">
                 Rifjan<br/>
                 <span className="g-text">Jundila</span>
-                <span className="cursor text-emerald-400">_</span>
+                <span className="cursor text-black dark:text-white">_</span>
               </h1>
 
-              <p className="fade-up-3 mt-5 text-base md:text-lg text-gray-500 dark:text-gray-400 max-w-xl leading-relaxed font-light">
-                Specialized in <span className="text-emerald-500 font-semibold dark:text-emerald-400">Laravel, PostgreSQL, RESTful APIs, & ERP Systems</span> ·{' '}
-                <span className="text-gray-700 dark:text-gray-200 font-medium">4+ tahun</span> pengalaman · Probolinggo / Surabaya
+              <p className="fade-up-3 mt-5 text-base md:text-lg text-neutral-500 dark:text-neutral-400 max-w-xl leading-relaxed font-light">
+                Specialized in <span className="text-black dark:text-white font-semibold">Laravel, PostgreSQL, RESTful APIs, & ERP Systems</span> ·{' '}
+                <span className="text-neutral-800 dark:text-neutral-200 font-medium">4+ tahun</span> pengalaman · Probolinggo / Surabaya
               </p>
 
               {/* Skills Tags */}
@@ -810,7 +810,7 @@ function App() {
               {/* Hero Action Buttons */}
               <div className="fade-up-4 flex flex-wrap items-center gap-3 mt-2">
                 <a id="hero-email" href="mailto:rjndla@gmail.com"
-                   className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white text-sm font-semibold rounded-xl transition-all shadow-lg shadow-emerald-900/30">
+                   className="inline-flex items-center gap-2 px-5 py-2.5 bg-black hover:bg-neutral-800 text-white dark:bg-white dark:hover:bg-neutral-200 dark:text-black text-sm font-semibold rounded-xl transition-all shadow-md">
                   <i className="ri-mail-send-line"></i> Contact Developer
                 </a>
                 {[
@@ -819,14 +819,14 @@ function App() {
                   { id: 'wb', icon: 'ri-global-line',        href: 'https://framecode.web.id/',                  label: 'framecode.web.id' },
                 ].map(l => (
                   <a key={l.id} id={`hero-${l.id}`} href={l.href} target="_blank" rel="noreferrer"
-                     className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium text-gray-400 hover:text-emerald-400 transition-colors">
+                     className="inline-flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium text-neutral-400 hover:text-black dark:hover:text-white transition-colors">
                     <i className={`${l.icon} text-base`}></i> {l.label}
                   </a>
                 ))}
               </div>
 
               {/* Scroll hint */}
-              <div className="fade-up-4 mt-8 flex items-center gap-3 text-gray-400 dark:text-gray-600">
+              <div className="fade-up-4 mt-8 flex items-center gap-3 text-neutral-400 dark:text-neutral-600">
                 <div className="w-px h-8 bg-current"></div>
                 <span className="mono text-[11px] tracking-widest uppercase">Scroll or use arrow keys to navigate</span>
               </div>
@@ -840,11 +840,11 @@ function App() {
             style={sectionStyle(1)}
           >
             <div className="min-h-screen pt-20 pb-12 max-w-4xl mx-auto px-6">
-              <div className="flex items-baseline gap-4 mb-10 sticky top-0 bg-white/80 dark:bg-[#090d16]/80 backdrop-blur-md py-3 -mx-6 px-6 z-10">
-                <span className="mono text-4xl font-black text-gray-200 dark:text-gray-800 select-none">01</span>
+              <div className="flex items-baseline gap-4 mb-10 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-md py-3 -mx-6 px-6 z-10">
+                <span className="mono text-4xl font-black text-neutral-300 dark:text-neutral-700 select-none">01</span>
                 <div>
                   <span className="section-label">Work History</span>
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Experience</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">Experience</h2>
                 </div>
               </div>
 
@@ -853,30 +853,30 @@ function App() {
                 <div className="space-y-5">
                   {experiences.map((exp, i) => (
                     <div key={i} className="relative">
-                      <div className={`absolute -left-6 top-5 w-2.5 h-2.5 rounded-full border-2 border-white dark:border-gray-950
-                        ${exp.current ? 'bg-emerald-400' : 'bg-gray-400 dark:bg-gray-700'}`} />
+                      <div className={`absolute -left-6 top-5 w-2.5 h-2.5 rounded-full border-2 border-white dark:border-black
+                        ${exp.current ? 'bg-black dark:bg-white' : 'bg-neutral-400 dark:bg-neutral-600'}`} />
 
                       <div className="card p-5">
                         <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
                           <div>
-                            <h3 className="font-semibold text-gray-900 dark:text-white text-sm">{exp.role}</h3>
-                            <p className="text-emerald-600 dark:text-emerald-400 text-xs font-medium">{exp.company}</p>
+                            <h3 className="font-semibold text-neutral-900 dark:text-white text-sm">{exp.role}</h3>
+                            <p className="text-neutral-700 dark:text-neutral-300 text-xs font-medium">{exp.company}</p>
                           </div>
                           {exp.current && (
-                            <span className="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-full font-medium">
+                            <span className="text-[10px] bg-black text-white dark:bg-white dark:text-black border border-neutral-700 px-2 py-0.5 rounded-full font-medium">
                               Current Role
                             </span>
                           )}
                         </div>
-                        <p className="mono text-xs text-gray-400 mb-3">
+                        <p className="mono text-xs text-neutral-400 mb-3">
                           <i className="ri-calendar-line mr-1"></i>{exp.period}
                           <span className="mx-2">·</span>
                           <i className="ri-map-pin-line mr-1"></i>{exp.location}
                         </p>
                         <ul className="space-y-1 mb-3">
                           {exp.points.map((p, j) => (
-                            <li key={j} className="text-xs text-gray-600 dark:text-gray-300 flex gap-2">
-                              <span className="text-emerald-400 shrink-0">›</span>{p}
+                            <li key={j} className="text-xs text-neutral-600 dark:text-neutral-300 flex gap-2">
+                              <span className="text-neutral-400 shrink-0">›</span>{p}
                             </li>
                           ))}
                         </ul>
@@ -898,11 +898,11 @@ function App() {
             style={sectionStyle(2)}
           >
             <div className="min-h-screen pt-20 pb-12 max-w-4xl mx-auto px-6">
-              <div className="flex items-baseline gap-4 mb-10 sticky top-0 bg-white/80 dark:bg-[#090d16]/80 backdrop-blur-md py-3 -mx-6 px-6 z-10">
-                <span className="mono text-4xl font-black text-gray-200 dark:text-gray-800 select-none">02</span>
+              <div className="flex items-baseline gap-4 mb-10 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-md py-3 -mx-6 px-6 z-10">
+                <span className="mono text-4xl font-black text-neutral-300 dark:text-neutral-700 select-none">02</span>
                 <div>
                   <span className="section-label">System Architecture & Code</span>
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Projects</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">Projects</h2>
                 </div>
               </div>
 
@@ -911,20 +911,20 @@ function App() {
                   <div key={i} className="card p-5 flex flex-col justify-between gap-3 group">
                     <div>
                       <div className="flex items-center justify-between mb-2">
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-cyan-500 flex items-center justify-center text-white shadow-sm">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-neutral-800 to-black dark:from-neutral-100 dark:to-white flex items-center justify-center text-white dark:text-black shadow-sm">
                           <i className="ri-code-s-slash-line text-sm"></i>
                         </div>
-                        <span className="mono text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/20 font-bold">
+                        <span className="mono text-[10px] bg-neutral-900 text-white dark:bg-white dark:text-black px-2 py-0.5 rounded border border-neutral-700 font-bold">
                           {p.httpCode}
                         </span>
                       </div>
-                      <h3 className="font-semibold text-gray-900 dark:text-white text-sm leading-tight group-hover:text-emerald-400 transition-colors">{p.name}</h3>
-                      <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium mb-1.5">{p.sub}</p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed mb-3">{p.desc}</p>
+                      <h3 className="font-semibold text-neutral-900 dark:text-white text-sm leading-tight group-hover:text-neutral-500 transition-colors">{p.name}</h3>
+                      <p className="text-xs text-neutral-700 dark:text-neutral-300 font-medium mb-1.5">{p.sub}</p>
+                      <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed mb-3">{p.desc}</p>
                     </div>
 
                     <div className="space-y-2">
-                      <div className="bg-gray-950 p-2 rounded border border-gray-800 font-mono text-[10px] text-cyan-300 truncate">
+                      <div className="bg-black p-2 rounded border border-neutral-800 font-mono text-[10px] text-neutral-200 truncate">
                         {p.apiRoute}
                       </div>
                       <div className="flex flex-wrap gap-1">
@@ -944,11 +944,11 @@ function App() {
             style={sectionStyle(3)}
           >
             <div className="min-h-screen pt-20 pb-12 max-w-4xl mx-auto px-6">
-              <div className="flex items-baseline gap-4 mb-10 sticky top-0 bg-white/80 dark:bg-[#090d16]/80 backdrop-blur-md py-3 -mx-6 px-6 z-10">
-                <span className="mono text-4xl font-black text-gray-200 dark:text-gray-800 select-none">03</span>
+              <div className="flex items-baseline gap-4 mb-10 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-md py-3 -mx-6 px-6 z-10">
+                <span className="mono text-4xl font-black text-neutral-300 dark:text-neutral-700 select-none">03</span>
                 <div>
                   <span className="section-label">Academic Background</span>
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Education</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">Education</h2>
                 </div>
               </div>
 
@@ -960,16 +960,16 @@ function App() {
                     notes: ['Anggota Lembaga Jurnalistik MASA', 'Aktif di Forum Komunikasi Osis PP Nurul Jadid'] },
                 ].map((e, i) => (
                   <div key={i} className="card p-5">
-                    <h3 className="font-semibold text-gray-900 dark:text-white">{e.school}</h3>
-                    <p className="text-emerald-600 dark:text-emerald-400 text-sm font-medium">{e.degree}</p>
-                    <p className="mono text-xs text-gray-400 mt-1 mb-3">
+                    <h3 className="font-semibold text-neutral-900 dark:text-white">{e.school}</h3>
+                    <p className="text-neutral-700 dark:text-neutral-300 text-sm font-medium">{e.degree}</p>
+                    <p className="mono text-xs text-neutral-400 mt-1 mb-3">
                       <i className="ri-calendar-line mr-1"></i>{e.period}
-                      {e.gpa && <span className="ml-3 text-emerald-500 font-semibold">{e.gpa}</span>}
+                      {e.gpa && <span className="ml-3 text-black dark:text-white font-semibold">{e.gpa}</span>}
                     </p>
                     <ul className="space-y-1.5">
                       {e.notes.map((n, j) => (
-                        <li key={j} className="text-xs text-gray-500 dark:text-gray-300 flex gap-2">
-                          <span className="text-emerald-400 shrink-0">›</span>{n}
+                        <li key={j} className="text-xs text-neutral-500 dark:text-neutral-300 flex gap-2">
+                          <span className="text-neutral-400 shrink-0">›</span>{n}
                         </li>
                       ))}
                     </ul>
@@ -979,25 +979,25 @@ function App() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="card p-5">
-                  <div className="w-8 h-8 rounded-lg bg-amber-400/10 flex items-center justify-center text-amber-500 mb-3"><i className="ri-award-line"></i></div>
-                  <p className="text-sm font-semibold text-gray-900 dark:text-white leading-snug">Full-Stack Developer with Laravel: Web Travel</p>
-                  <p className="text-xs text-gray-400 mt-1">Certification</p>
+                  <div className="w-8 h-8 rounded-lg bg-black text-white dark:bg-white dark:text-black flex items-center justify-center mb-3"><i className="ri-award-line"></i></div>
+                  <p className="text-sm font-semibold text-neutral-900 dark:text-white leading-snug">Full-Stack Developer with Laravel: Web Travel</p>
+                  <p className="text-xs text-neutral-400 mt-1">Certification</p>
                 </div>
                 <div className="card p-5">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-400/10 flex items-center justify-center text-emerald-500 mb-3"><i className="ri-medal-line"></i></div>
-                  <p className="text-sm font-semibold text-gray-900 dark:text-white leading-snug">Finalis Lomba UI/UX Competition</p>
-                  <p className="text-xs text-gray-400 mt-1">Honor & Award</p>
+                  <div className="w-8 h-8 rounded-lg bg-black text-white dark:bg-white dark:text-black flex items-center justify-center mb-3"><i className="ri-medal-line"></i></div>
+                  <p className="text-sm font-semibold text-neutral-900 dark:text-white leading-snug">Finalis Lomba UI/UX Competition</p>
+                  <p className="text-xs text-neutral-400 mt-1">Honor & Award</p>
                 </div>
                 <div className="card p-5">
-                  <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-4">Languages</p>
+                  <p className="text-xs font-semibold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider mb-4">Languages</p>
                   {[{ l: 'Bahasa Indonesia', note: 'Native', pct: 100 }, { l: 'English', note: 'Limited', pct: 40 }].map(x => (
                     <div key={x.l} className="mb-3">
                       <div className="flex justify-between text-xs mb-1">
-                        <span className="text-gray-700 dark:text-gray-300 font-medium">{x.l}</span>
-                        <span className="text-gray-400">{x.note}</span>
+                        <span className="text-neutral-700 dark:text-neutral-300 font-medium">{x.l}</span>
+                        <span className="text-neutral-400">{x.note}</span>
                       </div>
-                      <div className="h-1 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
-                        <div className="h-full rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400" style={{ width: `${x.pct}%` }} />
+                      <div className="h-1 bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden">
+                        <div className="h-full rounded-full bg-black dark:bg-white" style={{ width: `${x.pct}%` }} />
                       </div>
                     </div>
                   ))}
@@ -1013,23 +1013,23 @@ function App() {
             style={sectionStyle(4)}
           >
             <div className="min-h-screen pt-20 pb-20 max-w-4xl mx-auto px-6">
-              <div className="flex items-baseline gap-4 mb-6 sticky top-0 bg-white/80 dark:bg-[#090d16]/80 backdrop-blur-md py-3 -mx-6 px-6 z-10">
-                <span className="mono text-4xl font-black text-gray-200 dark:text-gray-800 select-none">04</span>
+              <div className="flex items-baseline gap-4 mb-6 sticky top-0 bg-white/80 dark:bg-black/80 backdrop-blur-md py-3 -mx-6 px-6 z-10">
+                <span className="mono text-4xl font-black text-neutral-300 dark:text-neutral-700 select-none">04</span>
                 <div>
                   <span className="section-label">Interactive Playground</span>
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Backend Mini Games</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">Backend Mini Games</h2>
                 </div>
               </div>
 
               {/* Game Tabs */}
-              <div className="flex gap-3 mb-5 border-b border-gray-800 pb-3">
+              <div className="flex gap-3 mb-5 border-b border-neutral-800 pb-3">
                 <button
                   type="button"
                   onClick={() => setActiveGameTab('loadbalancer')}
                   className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all flex items-center gap-2 ${
                     activeGameTab === 'loadbalancer'
-                      ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-950'
-                      : 'bg-gray-800/60 text-gray-400 hover:text-white'
+                      ? 'bg-black text-white dark:bg-white dark:text-black shadow-md'
+                      : 'bg-neutral-800/60 text-neutral-400 hover:text-white'
                   }`}
                 >
                   <i className="ri-server-line"></i> Server Load Balancer
@@ -1039,8 +1039,8 @@ function App() {
                   onClick={() => setActiveGameTab('bugsmasher')}
                   className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all flex items-center gap-2 ${
                     activeGameTab === 'bugsmasher'
-                      ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-950'
-                      : 'bg-gray-800/60 text-gray-400 hover:text-white'
+                      ? 'bg-black text-white dark:bg-white dark:text-black shadow-md'
+                      : 'bg-neutral-800/60 text-neutral-400 hover:text-white'
                   }`}
                 >
                   <i className="ri-bug-2-line"></i> Bug Smasher & HTTP Trivia
@@ -1060,18 +1060,18 @@ function App() {
           >
             <div className="min-h-screen flex flex-col justify-start pt-20 pb-20 max-w-4xl mx-auto px-6">
               <div className="flex items-baseline gap-4 mb-12">
-                <span className="mono text-4xl font-black text-gray-200 dark:text-gray-800 select-none">05</span>
+                <span className="mono text-4xl font-black text-neutral-300 dark:text-neutral-700 select-none">05</span>
                 <div>
                   <span className="section-label">Let's Talk</span>
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Contact</h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">Contact</h2>
                 </div>
               </div>
 
-              <h3 className="text-4xl md:text-5xl font-black text-gray-900 dark:text-white leading-tight mb-4">
+              <h3 className="text-4xl md:text-5xl font-black text-neutral-900 dark:text-white leading-tight mb-4">
                 Punya project<br/>
                 <span className="g-text">menarik?</span>
               </h3>
-              <p className="text-gray-400 dark:text-gray-500 font-light text-lg mb-10 max-w-md">
+              <p className="text-neutral-400 dark:text-neutral-500 font-light text-lg mb-10 max-w-md">
                 Saya siap berkolaborasi untuk arsitektur backend, RESTful API, & pengembangan ERP. Feel free to reach out anytime.
               </p>
 
@@ -1087,8 +1087,8 @@ function App() {
                      rel={c.href.startsWith('http') ? 'noreferrer' : undefined}
                      className={`inline-flex items-center gap-2.5 px-5 py-3 rounded-xl text-sm font-semibold transition-all ${
                        c.primary
-                         ? 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-900/30'
-                         : 'card text-gray-400 hover:text-emerald-400'
+                         ? 'bg-black hover:bg-neutral-800 text-white dark:bg-white dark:hover:bg-neutral-200 dark:text-black shadow-md'
+                         : 'card text-neutral-400 hover:text-black dark:hover:text-white'
                      }`}>
                     <i className={`${c.icon} text-base`}></i>
                     {c.label}
@@ -1097,9 +1097,9 @@ function App() {
               </div>
 
               {/* Footer inline */}
-              <div className="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="border-t border-neutral-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <span className="mono text-sm g-text font-semibold">rj.dev</span>
-                <p className="text-xs text-gray-400 dark:text-gray-500">© 2026 Rifjan Jundila · Probolinggo / Surabaya, Jawa Timur</p>
+                <p className="text-xs text-neutral-400 dark:text-neutral-500">© 2026 Rifjan Jundila · Probolinggo / Surabaya, Jawa Timur</p>
                 <div className="flex gap-4">
                   {[
                     { id: 'f-li', icon: 'ri-linkedin-box-line', href: 'https://www.linkedin.com/in/rifjan-jundila/' },
@@ -1107,7 +1107,7 @@ function App() {
                     { id: 'f-ig', icon: 'ri-instagram-line',     href: 'https://www.instagram.com/designrj29/' },
                   ].map(s => (
                     <a key={s.id} id={s.id} href={s.href} target="_blank" rel="noreferrer"
-                       className="text-gray-400 hover:text-emerald-400 transition-colors text-lg">
+                       className="text-neutral-400 hover:text-black dark:hover:text-white transition-colors text-lg">
                       <i className={s.icon}></i>
                     </a>
                   ))}

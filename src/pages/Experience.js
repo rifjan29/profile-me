@@ -81,20 +81,20 @@ const experiences = [
 
 export const Experience = () => {
   return (
-    <section id="experience" className="py-24 bg-gray-50 dark:bg-gray-900/40">
+    <section id="experience" className="py-24 bg-neutral-50 dark:bg-black">
       <div className="max-w-5xl mx-auto px-6">
         {/* Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white section-heading">
+          <h2 className="text-3xl font-bold text-neutral-900 dark:text-white section-heading">
             Experience
           </h2>
-          <p className="text-gray-400 dark:text-gray-500 text-sm mt-4">My professional journey so far</p>
+          <p className="text-neutral-400 dark:text-neutral-500 text-sm mt-4">My professional journey so far</p>
         </div>
 
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gray-200 dark:bg-gray-800 transform md:-translate-x-1/2"></div>
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-neutral-200 dark:bg-neutral-800 transform md:-translate-x-1/2"></div>
 
           <div className="space-y-10">
             {experiences.map((exp, i) => (
@@ -106,14 +106,14 @@ export const Experience = () => {
               >
                 {/* Timeline dot */}
                 <div className="absolute left-6 md:left-1/2 w-3 h-3 rounded-full border-2 transform -translate-x-1/2 mt-1.5 z-10
-                  border-white dark:border-gray-950
+                  border-white dark:border-black
                   transition-all duration-300
                   cursor-default
                   "
                   style={{
                     background: exp.current
-                      ? 'linear-gradient(135deg, #10b981, #06b6d4)'
-                      : '#d1d5db',
+                      ? '#171717'
+                      : '#a3a3a3',
                   }}
                 >
                 </div>
@@ -123,26 +123,26 @@ export const Experience = () => {
 
                 {/* Card */}
                 <div className={`ml-14 md:ml-0 md:w-1/2 ${i % 2 === 0 ? 'md:pl-8' : 'md:pr-8'}`}>
-                  <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 card-hover">
+                  <div className="bg-white dark:bg-neutral-950 rounded-2xl p-6 shadow-sm border border-neutral-200 dark:border-neutral-800 card-hover">
                     {/* Header */}
                     <div className="flex items-start justify-between mb-3">
                       <div>
-                        <h3 className="font-semibold text-gray-900 dark:text-white text-base leading-tight">
+                        <h3 className="font-semibold text-neutral-900 dark:text-white text-base leading-tight">
                           {exp.role}
                         </h3>
-                        <p className="text-emerald-600 dark:text-emerald-400 text-sm font-medium mt-0.5">
+                        <p className="text-neutral-700 dark:text-neutral-300 text-sm font-medium mt-0.5">
                           {exp.company}
                         </p>
                       </div>
                       {exp.current && (
-                        <span className="text-xs bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-full font-medium shrink-0 ml-2">
+                        <span className="text-xs bg-black text-white dark:bg-white dark:text-black px-2.5 py-0.5 rounded-full font-medium shrink-0 ml-2">
                           Current
                         </span>
                       )}
                     </div>
 
                     {/* Meta */}
-                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-400 dark:text-gray-500 mb-4">
+                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-neutral-400 dark:text-neutral-500 mb-4">
                       <span className="flex items-center gap-1">
                         <i className="ri-calendar-line"></i>
                         {exp.period} · {exp.duration}
@@ -160,8 +160,8 @@ export const Experience = () => {
                     {/* Description */}
                     <ul className="space-y-1.5 mb-4">
                       {exp.description.map((d, j) => (
-                        <li key={j} className="text-sm text-gray-500 dark:text-gray-400 flex gap-2">
-                          <span className="text-emerald-400 shrink-0 mt-0.5">•</span>
+                        <li key={j} className="text-sm text-neutral-500 dark:text-neutral-400 flex gap-2">
+                          <span className="text-neutral-400 shrink-0 mt-0.5">•</span>
                           <span>{d}</span>
                         </li>
                       ))}
@@ -170,7 +170,7 @@ export const Experience = () => {
                     {/* Tags */}
                     <div className="flex flex-wrap gap-1.5">
                       {exp.tags.map(t => (
-                        <span key={t} className="text-xs bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded-md font-medium">
+                        <span key={t} className="text-xs bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-800 px-2 py-0.5 rounded-md font-medium">
                           {t}
                         </span>
                       ))}

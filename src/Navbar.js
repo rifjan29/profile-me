@@ -20,10 +20,10 @@ export default function Navbar({ active, goTo }) {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-slate-50/90 dark:bg-[#090d16]/90 backdrop-blur-xl border-b border-slate-200/70 dark:border-white/5 transition-colors duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-black/90 backdrop-blur-xl border-b border-neutral-200 dark:border-neutral-800 transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
         {/* Logo */}
-        <button onClick={() => handleMobileNav(0)} className="mono text-sm font-medium text-gray-900 dark:text-white">
+        <button onClick={() => handleMobileNav(0)} className="mono text-sm font-medium text-black dark:text-white">
           rj<span className="g-text">.</span>dev
         </button>
 
@@ -47,7 +47,7 @@ export default function Navbar({ active, goTo }) {
             id="theme-toggle"
             onClick={toggleDarkMode}
             aria-label="Toggle theme"
-            className="w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:text-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all"
+            className="w-8 h-8 rounded-full flex items-center justify-center text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-all"
           >
             {isDarkMode
               ? <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -63,7 +63,7 @@ export default function Navbar({ active, goTo }) {
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle mobile menu"
-            className="md:hidden w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400 hover:text-emerald-500 transition-colors"
+            className="md:hidden w-8 h-8 rounded-lg flex items-center justify-center text-neutral-500 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors"
           >
             <i className={isOpen ? 'ri-close-line text-xl' : 'ri-menu-line text-xl'}></i>
           </button>
@@ -72,17 +72,17 @@ export default function Navbar({ active, goTo }) {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <nav className="md:hidden border-t border-slate-200/80 dark:border-white/10 bg-slate-50/95 dark:bg-[#090d16]/95 px-6 py-4 flex flex-col gap-3 shadow-xl">
+        <nav className="md:hidden border-t border-neutral-200 dark:border-neutral-800 bg-white/95 dark:bg-black/95 px-6 py-4 flex flex-col gap-3 shadow-xl">
           {LINKS.map(l => (
             <button
               key={l.name}
               onClick={() => handleMobileNav(l.idx)}
               className={`text-left text-sm font-medium py-1.5 transition-colors font-mono flex items-center justify-between ${
-                active === l.idx ? 'text-emerald-500 font-bold' : 'text-gray-600 dark:text-gray-300'
+                active === l.idx ? 'text-black dark:text-white font-bold' : 'text-neutral-600 dark:text-neutral-400'
               }`}
             >
               <span>{l.name}</span>
-              {active === l.idx && <span className="text-xs text-emerald-500">●</span>}
+              {active === l.idx && <span className="text-xs text-black dark:text-white">●</span>}
             </button>
           ))}
         </nav>
